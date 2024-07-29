@@ -1,0 +1,48 @@
+.embracing {
+  width: auto;
+  height: auto;
+  padding: 2em 0;
+}
+
+.embracing .containers {
+  width: 100%;
+  max-width: 80em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.embracing .swiper {
+  width: 100%;
+  height: 20em;
+  border: 0.1em solid #bbb9b9;
+  border-radius: 1em;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1)
+}
+
+.embracing .img-item {
+  font-size: 0.6em; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 33em; 
+  gap: 1em;
+  background-color: #FFF;
+}
+
+.embracing .img-item img.slide-item {
+  width: 100%;
+  height: auto;
+  max-height: 10em; 
+  object-fit: contain;
+}
+
+.embracing .link-product { 
+  border: none; 
+  width: 100%; 
+  text-decoration: none;
+  color: #000;
+}
+.embracing .link-product:hover p{
+  color: #0800fc;
+}
