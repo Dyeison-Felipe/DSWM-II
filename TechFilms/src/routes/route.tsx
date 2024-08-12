@@ -3,7 +3,7 @@ import IdFilms from "../components/IdFilms";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Voted from "../pages/MostVoted";
-import Home from "../pages/Home";
+import Home from "../pages/Popular";
 export default function route() {
   return (
     <BrowserRouter>

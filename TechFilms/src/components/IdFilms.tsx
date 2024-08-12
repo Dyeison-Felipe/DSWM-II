@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Film } from "../types/Film";
 import axios from "axios";
 import { FaRegStar } from "react-icons/fa";
@@ -9,16 +9,18 @@ import { CiCalendarDate } from "react-icons/ci";
 export default function IdFilms() {
   const { id } = useParams<{ id: string }>();
   const [film, setFilm] = useState<Film | null>(null);
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const url = import.meta.env.VITE_API_URL_ID
 
   useEffect(() => {
     const fetchFilm = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}`,
+          `${url}${id}`,
           {
             params: {
               language: "pt-BR",
-              api_key: import.meta.env.VITE_API_KEY,
+              api_key: apiKey,
             },
           }
         );
@@ -29,7 +31,7 @@ export default function IdFilms() {
       }
     };
     fetchFilm();
-  }, [id]);
+  }, [id, apiKey, url]);
 
   if (!film) {
     return <div>Carregando ...</div>;
@@ -66,6 +68,13 @@ export default function IdFilms() {
         <div>
           <p>{film.overview}</p>
         </div>
+
+        <Link
+            to={`/film/${film.id}`}
+            className="border py-1 px-20 rounded-md bg-yellow-400 hover:bg-yellow-600 hover:text-black"
+          >
+            Assistir
+          </Link>
       </div>
     </section>
   );

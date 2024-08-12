@@ -16,10 +16,12 @@ export default function Navbar() {
 
   return (
     <nav className="flex bg-zinc-900 text-white w-auto justify-around items-center h-24">
-      <div className="flex items-center">
-        <MdLocalMovies className=" text-6xl" />
-        <p className="text-yellow-300 font-bold text-4xl">TechFilm</p>
-      </div>
+      <Link to='/'>
+        <div className="flex items-center">
+          <MdLocalMovies className=" text-6xl" />
+          <p className="text-yellow-300 font-bold text-4xl">TechFilm</p>
+        </div>
+      </Link>
 
       <div>
         <ul className="flex gap-4 list-none text-center  font-bold">

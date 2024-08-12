@@ -3,27 +3,25 @@ import axios from "axios";
 import { Film } from "../types/Film";
 import { Link } from "react-router-dom";
 
-function Films() {
+export default function Films() {
   const [films, setFilms] = useState<Film[]>([]);
-  const apikey = import.meta.env.VITE_API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const url = import.meta.env.VITE_API_POPULAR;
 
   const getAllMovies = useCallback(async () => {
     try {
-      const response = await axios.get(
-        "https://api.themoviedb.org/3/movie/popular",
-        {
-          params: {
-            language: "pt-BR",
-            api_key: apikey,
-          },
-        }
-      );
+      const response = await axios.get(`${url}`, {
+        params: {
+          language: "pt-BR",
+          api_key: apiKey,
+        },
+      });
       console.log(response);
       setFilms(response.data.results);
     } catch (error) {
       console.log("Ocorreu algum erro", error);
     }
-  }, [apikey]);
+  }, [apiKey, url]);
 
   useEffect(() => {
     getAllMovies();
@@ -55,5 +53,3 @@ function Films() {
     </div>
   );
 }
-
-export default Films;

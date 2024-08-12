@@ -5,16 +5,18 @@ import { Link } from "react-router-dom";
 
 export default function MaisVotados() {
   const [films, setFilms] = useState<Film[]>([]);
-  const apikey = import.meta.env.VITE_API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const url = import.meta.env.VITE_API_TOP_RATED;
+
 
   const getAllMovies = useCallback(async () => {
     try {
       const response = await axios.get(
-        "https://api.themoviedb.org/3/movie/top_rated",
+        `${url}`,
         {
           params: {
             language: "pt-BR",
-            api_key: apikey,
+            api_key: apiKey,
           },
         }
       );
@@ -23,7 +25,7 @@ export default function MaisVotados() {
     } catch (error) {
       console.log("Ocorreu algum erro", error);
     }
-  }, [apikey]);
+  }, [apiKey, url]);
 
   useEffect(() => {
     getAllMovies();

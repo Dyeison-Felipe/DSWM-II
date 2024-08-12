@@ -1,4 +1,4 @@
-import Films from "../components/Films";
+import Films from "../components/PopularMovies";
 
 export default function Home() {
   return (
