@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Voted from "../pages/MostVoted";
 import Home from "../pages/Popular";
+
+/*componente que exibir o roteamento doa pages do site*/
 export default function route() {
   return (
     <BrowserRouter>

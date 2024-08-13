@@ -1,3 +1,4 @@
+/*tipagem dos dados recebidos da api*/
 export type Film = {
   id: number;
   original_title: string;

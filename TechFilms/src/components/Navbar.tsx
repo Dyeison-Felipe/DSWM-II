@@ -2,20 +2,13 @@ import "../index.css";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { MdLocalMovies } from "react-icons/md";
-import { useState } from "react";
 
+/*componente de navegação do site*/
 export default function Navbar() {
 
-  const [option, setOption] = useState<string>('')
-  console.log("🚀 ~ Navbar ~ option:", option)
-
-  const handleLinkClick = (value:string) => {
-    setOption(value)
-  }
-  
-
+  /*retora a logo, duas opções de estilos de filmes para assistir e um inpout de pesquisar, todos feitos com tailwind e com suas respectivas responsividades*/
   return (
-    <nav className="flex bg-zinc-900 text-white w-auto justify-around items-center h-24">
+    <nav className="flex bg-zinc-900 text-white w-auto justify-around items-center h-24 max-[600px]:flex-col max-[600px]:h-96">
       <Link to='/'>
         <div className="flex items-center">
           <MdLocalMovies className=" text-6xl" />
@@ -24,11 +17,10 @@ export default function Navbar() {
       </Link>
 
       <div>
-        <ul className="flex gap-4 list-none text-center  font-bold">
+        <ul className="flex gap-4 list-none text-center font-bold max-[960px]:flex-col">
           <Link
             to="/top_voted"
             className="bg-slate-950 hover:bg-white text-white hover:text-black duration-500 w-36 border border-solid border-zinc-50 px-3 py-1 rounded-lg"
-            onClick={() => handleLinkClick('top_voted')}
           >
             Mais votados
           </Link>
@@ -50,24 +42,6 @@ export default function Navbar() {
           placeholder="Pesquisar"
         />
         <FaSearch />
-      </div>
-
-      <div>
-        <ul className="flex gap-4 list-none text-center  font-bold">
-          <Link
-            to=""
-            className="bg-slate-950 hover:bg-white text-white hover:text-black duration-500 w-36 border border-solid border-zinc-50 px-3 py-1 rounded-lg"
-          >
-            Login
-          </Link>
-
-          <Link
-            to=""
-            className="bg-slate-950 hover:bg-white text-white hover:text-black  duration-300 w-36 border border-solid border-zinc-50 px-3 py-1 rounded-lg"
-          >
-            Cadastro
-          </Link>
-        </ul>
       </div>
     </nav>
   );

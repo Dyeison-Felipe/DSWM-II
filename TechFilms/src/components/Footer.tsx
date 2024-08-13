@@ -10,7 +10,9 @@ export default function Footer() {
   const year = data.getFullYear();
 
   return (
-    <footer className="bg-black text-white h-full min-h-32 border-t flex justify-around items-center">
+    /*DOCUMENTAÇÃO */
+    /*Utilizei a tag do rodapé (footer) para englobar minha logo, o copyright e as redes sociais que estão utilizando a biblioteca react-icons, todas com estilização em tailwind */
+    <footer className="bg-black text-white h-full min-h-32 border-t flex justify-around items-center max-[600px]:flex-col">
       <div className="flex justify-center items-center">
         <MdLocalMovies className=" text-6xl" />
         <p className="text-yellow-300 font-bold text-4xl">TechFilm</p>
