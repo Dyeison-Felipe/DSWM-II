@@ -15,7 +15,7 @@ export default function Films() {
   const url = import.meta.env.VITE_API_POPULAR;
 
   /*função para buscar os filmes da api e memorizar utilizando useCalback*/
-
+  
   const getAllMovies = useCallback(async () => {
     try {
       /*fazendo requisição a api passando a url, a linguagem e chave da api*/
@@ -42,6 +42,7 @@ export default function Films() {
   return (
     <div className="grid grid-cols-3 gap-x-36 gap-y-10 pt-8 max-[1500px]:grid-cols-2 max-[960px]:grid-cols-1">
       {/*fazenod um map para deestruturar os dados e exibir empartes especificas do codigo*/}
+      
       {films.map((film) => (
         /*passando o id para buscar dada detalhe daquele id do filme*/
         <div
