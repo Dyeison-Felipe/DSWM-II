@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Página Protegida</title>
+  </head>
+  <body>
+    <div class="div-geral">
+      <div class="logout">
+        <h1>Área Protegida</h1>
+        <form id="logoutForm" action="/logout" method="POST">
+          <button type="submit" id="logoutButton">Logout</button>
+        </form>
+      </div>
+
+      <div class="container">
+        <div class="protected-content">
+          <h1>Bem-vindo!</h1>
+          <p>Você está autenticado e pode acessar esta página protegida.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("logoutButton")
+        .addEventListener("click", async (event) => {
+          event.preventDefault();
+          const response = await fetch("/logout", { method: "POST" });
+
+          if (response.ok) {
+            window.location.href = "/login.html";
+          } else {
+            alert("Falha ao sair.");
+          }
+        });
+    </script>
+  </body>
+</html>
